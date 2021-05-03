@@ -1,0 +1,14 @@
+class Teacher:
+    count_learns = 0
+
+    def teach(self, student, knowlende):
+        student.learn(knowlende)
+        self.count_learns += 1
+
+
+class Stundent:
+    knowledges = []
+
+    def learn(self, knowlende):
+        self.knowledges.append(knowlende)
+
