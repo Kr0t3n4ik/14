@@ -1,0 +1,41 @@
+from string import ascii_uppercase
+
+
+class Alphabet:
+
+    def __init__(self, lang, letters):
+        self.lang = lang
+        self.letters = letters
+
+    def print_letters(self):
+        for letter in self.letters:
+            print(letter)
+
+    def letters_num(self):
+        return len(self.letters)
+
+
+class EnAlphabet(Alphabet):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__letters_num = len(self.letters)
+
+    def is_en_letters(self, char):
+        return char in self.letters
+
+    def letters_num(self):
+        return self.__letters_num
+
+    @classmethod
+    def example(cls):
+        return 'Some text on english language'
+
+
+en = EnAlphabet('en', ascii_uppercase)
+en.print_letters()
+print(en.letters_num())
+print(en.is_en_letters('F'))
+print(en.is_en_letters('Щ'))
+print(EnAlphabet.example())
+
